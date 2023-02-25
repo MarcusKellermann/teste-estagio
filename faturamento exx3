@@ -1,0 +1,47 @@
+e = ['seg', 'ter', 'qua', 'qui', 'sex']
+mai = 0
+men = 0
+
+faturamento = e()
+for c in listanum:
+
+    while True:
+        try:
+            v = float(input(f'Digite o faturamento  do dia {c}: '))
+            if v < 0:
+                print(
+                    '\033[31mValor INVÁLIDO! Digite apenas valores maiores ou iguais a "0":\033[m'
+                )
+            break
+        except:
+            print('\033[31mValor INVÁLIDO! Digite apenas valores reais!\033[m')
+
+    faturamento.append(v)
+
+faturamento_total = sum(faturamento)
+print(
+    f'\033[32mO faturamento total da Distribuidora foi: R$ {faturamento_total:.2f}'
+    .replace('.', ','))
+
+
+for i in faturamento:
+    percentual = ((i / faturamento_total) * 100)
+
+  if percentual == 0:
+    
+    mai = men = percentual
+    
+    
+  else:
+    if i > mai:
+        mai = percentual
+
+    if i < men:
+        men = percentual
+      
+       break 
+    print(
+        f'O menor percentual de faturamento é: {men:.2f} %')
+
+    print(
+        f'O maior percentual de faturamento é: {mai:.2f} %')
